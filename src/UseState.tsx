@@ -1,4 +1,4 @@
-import { FormEventHandler, useState } from "react";
+import { FormEventHandler, useState, useEffect } from "react";
 
 export default function UseState() {
   const [count, setCount] = useState(0);
@@ -14,6 +14,13 @@ export default function UseState() {
     password: string;
     confirmPassword: string;
   } | null>(null);
+
+  // use Effect
+
+  useEffect(() => {
+    document.title = count.toString();
+  }, [count]);
+
   let onchangeHandler = (event: any) => {
     const { name, value } = event.target;
     setRegistration((prevRegistration) => ({ ...prevRegistration, [name]: value }));
@@ -59,13 +66,6 @@ export default function UseState() {
               <p>Email: {submittedData.email}</p>
             </div>
           )}
-          {/* {submittedData ? (
-            <div>
-              <h2>Submitted Data:</h2>
-              <p>Full Name: {submittedData.fullName}</p>
-              <p>Email: {submittedData.email}</p>
-            </div>
-          ) : null} */}
         </div>
       </div>
     </>
