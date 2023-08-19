@@ -7,9 +7,9 @@ export default function UseEffect() {
     const handleResize = () => {
       setScreenSize(window.innerWidth);
     };
-
+    // Mount
     window.addEventListener("resize", handleResize);
-
+    // UnMount
     return () => {
       window.removeEventListener("resize", handleResize);
     };
